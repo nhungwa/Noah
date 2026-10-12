@@ -1,0 +1,6 @@
+# Local / generated stuff - not part of the deliverable
+.venv/
+.scratch/
+__pycache__/
+*.pyc
+.pytest_cache/

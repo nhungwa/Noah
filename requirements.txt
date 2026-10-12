@@ -1,0 +1,3 @@
+# Tooling used to build and validate the XLSForms in forms/
+pyxform>=4.0
+openpyxl>=3.1

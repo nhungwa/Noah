@@ -1,0 +1,3 @@
+name,label,facility_type,lga,ward,community,latitude,longitude,geometry
+FAC001,SAMPLE ONLY - Example PHC (replace me),Primary Health Centre (PHC),EXAMPLE_LGA_A,EXAMPLE_Ward_A1,EXAMPLE_Community_A1a,9.076500,7.495100,9.076500 7.495100 0 0
+FAC002,SAMPLE ONLY - Example Health Post (replace me),Dispensary / Health Post,EXAMPLE_LGA_B,EXAMPLE_Ward_B1,EXAMPLE_Community_B1a,9.100000,7.520000,9.100000 7.520000 0 0
