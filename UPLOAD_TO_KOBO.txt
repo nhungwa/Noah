@@ -1,0 +1,61 @@
+HOW TO UPLOAD TO KOBOTOOLBOX
+===========================
+
+FILES IN THIS PACKAGE
+  forms/Capture_All_Facilities.xlsx      Form 1 - capture facilities (GPS + photo)
+  forms/Facility_Report_Geofenced.xlsx   Form 2 - report that only works ON SITE
+  data/enumerators.csv                   collector names + passwords (BOTH forms)
+  data/facilities.csv                    facility register with GPS (Form 2 only)
+
+NOTE: data/locations.csv (your LGA/Ward/Community list) does NOT get
+uploaded - it is already baked inside the two Excel forms at build time.
+
+
+STEP 1 - CREATE THE PROJECT FOR FORM 1
+  1. Log in to your KoboToolbox (e.g. https://ee.kobotoolbox.org,
+     or your organisation's Kobo server).
+  2. Click  New project  ->  Upload XLSForm.
+  3. Choose  forms/Capture_All_Facilities.xlsx  ->  Upload.
+  4. When the form details appear, click  Deploy.
+
+
+STEP 2 - ATTACH THE PASSWORD FILE TO FORM 1
+  1. Inside the project open  Settings  ->  Media.
+  2. Upload  data/enumerators.csv  (keep the file name exactly as it is).
+  3. Click  Redeploy  if Kobo asks you to.
+
+
+STEP 3 - CREATE THE PROJECT FOR FORM 2 (same pattern)
+  1. New project  ->  Upload XLSForm  ->
+     forms/Facility_Report_Geofenced.xlsx  ->  Deploy.
+  2. Settings  ->  Media  ->  upload BOTH files:
+        enumerators.csv
+        facilities.csv
+  3. Redeploy.
+
+
+STEP 4 - TEST BEFORE GOING TO THE FIELD
+  * Open each form with  Preview / Web form.
+  * Type a WRONG access code -> you must see:
+        "Wrong access code for the selected name..."
+  * In Form 2, choose a facility and try from far away (> 100 m) ->
+        "You must be within 100 metres of the selected facility..."
+  * Confirm the GPS question and the camera question work.
+
+
+IMPORTANT BEFORE REAL DATA COLLECTION
+  * The forms currently contain EXAMPLE locations and SAMPLE passwords
+    (CHANGE-ME-001 ...). That is fine for TESTING.
+  * For real use: edit  data/locations.csv  (your LGA/Ward/Community) and
+    data/enumerators.csv  (your collectors + passwords), then rebuild:
+        .venv/bin/python scripts/build_forms.py
+    and upload the two Excel files again (see README.md, section 4-6).
+  * The CSV file names must stay exactly:  enumerators.csv  and
+    facilities.csv  - the forms look them up by name.
+
+WHERE THINGS ARE EXPLAINED IN MORE DETAIL
+  README.md
+    section 3 - how passwords work + security notes
+    section 4 - full deployment steps
+    section 5 - capture -> export -> geofenced report workflow
+    section 7 - troubleshooting (e.g. "CSV file cannot be found")
